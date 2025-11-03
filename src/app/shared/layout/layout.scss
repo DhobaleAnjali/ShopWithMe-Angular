@@ -1,0 +1,9 @@
+app-navbar {
+  flex: 0 0 20%;
+  z-index: 10;
+}
+
+.content-area {
+  flex: 0 0 80%; /* remaining 80% for home content */
+  overflow: hidden;
+}

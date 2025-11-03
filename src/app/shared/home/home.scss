@@ -1,0 +1,70 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 4rem); /* below navbar */
+  margin-top: 4rem;
+  overflow: hidden;
+}
+
+.banner {
+  flex: 0 0 45%; /* banner takes 45% of remaining height */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(159 98 53 / 80%);
+
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 2px;
+    text-align: right;
+    span {
+      font-size: 6rem;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-image: url('../../../assets/photo.avif');
+    background-position: right;
+  }
+}
+
+.category-container {
+  flex: 1; /* remaining 55% */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.category {
+  text-align: center;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: rgb(159 98 53 / 80%);
+  padding-bottom: 0.5rem;
+  color: #fff;
+}
+
+.category img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h3 {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}

@@ -2,6 +2,15 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
 
+
+USE THESE APIS
+https://mockapi.io
+https://fakestoreapi.com
+https://dummyjson.com
+
+https://www.figma.com/community/file/1331381641303792117/furniture-ecommerce-website-ui
+
+
 ## Development server
 
 To start a local development server, run:
