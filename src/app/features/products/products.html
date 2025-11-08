@@ -1,0 +1,24 @@
+<section class="products-container">
+  <div class="page-header">
+    <h1 class="page-title">{{ category + "'s" | titlecase }} Collection</h1>
+  </div>
+
+  @if (products) {
+    <div class="products">
+      @for (p of products; track p.title) {
+        <div class="title" (click)="goToProduct(p.title)">
+          <img [src]="p.thumbnail" [alt]="p.title" />
+          <h5>{{ p.title }}</h5>
+          <p>{{ p.price }}</p>
+          <p class="product-description">{{ p.description }}</p>
+          <div class="actions">
+            <button class="wishlist-btn" (click)="$event.stopPropagation()">Wishlist</button>
+            <button class="add-btn" (click)="addToCart()">Add</button>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div>Loading . . .</div>
+  }
+</section>

@@ -1,0 +1,159 @@
+:host {
+  display: block;
+  height: 100vh;
+  width: 100%;
+}
+
+.bag-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* full-screen gradient */
+.login-shell {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 185, 186, 0.3019607843);
+  padding: 2rem;
+}
+
+/* left area (keeps layout balanced) */
+.left-area {
+  flex: 1 1 60%;
+  min-width: 320px;
+  /* optionally add illustration or brand message here later */
+}
+
+/* right area: card sits here */
+.right-area {
+  flex: 0 0 420px; /* card width */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* white card */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  // border-radius: 12px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #222;
+}
+
+/* branding + title */
+
+
+.title {
+  margin: 6px 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.subtitle {
+  margin: 6px 0 1rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.full {
+  width: 100%;
+}
+
+/* primary sign-in */
+.login-btn {
+  background-color: #ff3f6c !important; /* Blue color */
+  color: white !important;
+  font-weight: 500;
+  height: 48px;
+  // border-radius: 2rem;
+}
+
+/* OR separator */
+.or-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  .line {
+    flex: 1;
+    height: 1px;
+    background: #eee;
+  }
+  .or {
+    color: #999;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+}
+
+.new-user {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* social buttons */
+.social-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  .social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-start;
+    height: 2rem;
+    text-transform: none;
+    font-weight: 600;
+  }
+
+  .social .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .fb {
+    color: #155db6;
+    border-color: rgba(21, 93, 182, 0.12);
+  }
+
+  .google {
+    color: #444;
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .right-area {
+    flex: 0 0 360px;
+  }
+}
+@media (max-width: 640px) {
+  .login-shell {
+    padding: 1rem;
+  }
+  .left-area {
+    display: none;
+  }
+  .right-area {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+  .login-card {
+    max-width: 420px;
+    width: 100%;
+  }
+}

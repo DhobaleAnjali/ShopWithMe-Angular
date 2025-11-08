@@ -1,0 +1,91 @@
+//
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #ffb9ba4d;
+}
+
+.register-card {
+  width: 65vw;
+  max-width: 900px;
+  padding: 1rem 2rem;
+  // border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  overflow: hidden;
+  margin-top: 4rem;
+
+  h2 {
+    text-align: center;
+    color: #5a3e36;
+    margin-bottom: 1rem;
+  }
+
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    // gap: 1.2rem;
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0rem 1.5rem;
+
+      // Make address field span both columns
+      .address-field {
+        grid-column: span 2;
+      }
+    }
+
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      align-self: center;
+      width: 48%;
+      height: 3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      // border-radius: 2rem;
+    }
+
+    .register-btn {
+      background-color: #ff3f6c !important;
+      color: white !important;
+    }
+
+    .cancel-btn {
+      background-color: #d6d6dc !important;
+      color: white !important;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+}
+
+/* 📱 Responsive – stack form fields on smaller screens */
+@media (max-width: 768px) {
+  .register-card {
+    width: 90vw;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    .address-field {
+      grid-column: span 1 !important;
+    }
+  }
+
+  .register-form button {
+    width: 100%;
+  }
+}

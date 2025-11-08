@@ -1,0 +1,47 @@
+<div class="cart-wrapper">
+  <div class="cart-container">
+    <!-- LEFT: PRODUCT LIST -->
+    <div class="cart-items">
+      @for (item of cartItems; track $index) {
+        <div class="cart-item">
+          <img [src]="item.image" />
+
+          <div class="item-details">
+            <h3>{{ item.name }}</h3>
+            <p>Size: {{ item.size }}</p>
+            <p>₹{{ item.price }}</p>
+            <p>Qty: {{ item.qty }}</p>
+            <p>Return: {{ item.returnDate }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- RIGHT: PRICE BOX -->
+    <div class="price-box">
+      <h2>Price Details</h2>
+
+      <div class="row">
+        <span>Subtotal</span>
+        <span>{{ 'subtotal' }}</span>
+      </div>
+
+      <div class="row">
+        <span>Discount</span>
+        <span class="green">- {{ 'discount' }}</span>
+      </div>
+
+      <div class="row">
+        <span>Coupon</span>
+        <span>- {{ 'coupon' }}</span>
+      </div>
+
+      <div class="total">
+        <span>Total Amount</span>
+        <span>{{ 'total' }}</span>
+      </div>
+
+      <button mat-raised-button color="primary" class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+</div>
