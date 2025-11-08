@@ -1,16 +1,18 @@
 <div class="home-container">
   <!-- Banner -->
   <div class="banner">
-    <img/>
+    <img />
     <div class="banner-text">Upto <span>50%</span> discount</div>
   </div>
 
   <!-- Category section -->
   <div class="category-container">
-    <div class="category" *ngFor="let c of categories">
-      <img [src]="c.image" [alt]="c.name" />
-      <h3>{{ c.name }}</h3>
-    </div>
+    @for (c of categories; track c.name) {
+      <div class="category" (click)="goToCategory(c.name)">
+        <img [src]="c.image" [alt]="c.name" />
+        <h3>{{ c.name | titlecase }}</h3>
+      </div>
+    }
   </div>
 </div>
 

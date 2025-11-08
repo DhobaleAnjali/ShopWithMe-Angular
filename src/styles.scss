@@ -7,7 +7,20 @@
 }
 
 /* Optional: make the body fit the viewport cleanly */
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
+
+// Commmon syles
+.link {
+  color: #551a8b;
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+

@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
   <section>
-    <span class="logo">
-      Shop<span>With</span>Me
+    <div class="brand">
+      <div class="brand-text">Shop<span class="highlight">With</span>Me</div>
       <img src="assets/bag.jpg" alt="bag" class="bag-icon" />
-    </span>
+    </div>
   </section>
 
   <section class="search-container">
@@ -19,7 +19,7 @@
     <button mat-icon-button>
       <mat-icon class="fav-icon">favorite</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button [routerLink]="['/cart']">
       <mat-icon class="cart-icon">shopping_cart</mat-icon>
     </button>
   </section>
