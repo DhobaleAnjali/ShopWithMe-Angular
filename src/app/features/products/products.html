@@ -6,14 +6,15 @@
   @if (products) {
     <div class="products">
       @for (p of products; track p.title) {
-        <div class="title" (click)="goToProduct(p.title)">
+        <div class="title" (click)="goToProduct(p)">
           <img [src]="p.thumbnail" [alt]="p.title" />
           <h5>{{ p.title }}</h5>
           <p>{{ p.price }}</p>
           <p class="product-description">{{ p.description }}</p>
           <div class="actions">
-            <button class="wishlist-btn" (click)="$event.stopPropagation()">Wishlist</button>
-            <button class="add-btn" (click)="addToCart()">Add</button>
+            <button class="secondary-btn" (click)="addToWishlist()">
+              <mat-icon>favorite_border</mat-icon>Wishlist
+            </button>
           </div>
         </div>
       }

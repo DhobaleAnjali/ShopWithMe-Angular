@@ -24,3 +24,49 @@ body {
   }
 }
 
+//
+.size-options {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.size-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.size-circle:hover {
+  background: #f2f2f2;
+}
+
+.size-circle.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+//buttons
+.primary-btn{
+  background: #ff3f6c;
+  color: #fff;
+  border: none;
+}
+
+.secondary-btn{
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.ternary-btn{
+
+}

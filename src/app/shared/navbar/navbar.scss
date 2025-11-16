@@ -6,7 +6,7 @@ mat-toolbar {
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  gap: 12em;
+  gap: 10em;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -48,19 +48,19 @@ mat-toolbar {
   height: 2.5rem;
 }
 
-.search-container {
+.search-box {
   flex: 1;
+  margin-top: 1rem;
   .search-box {
     width: 100%;
 
-    input {
-    width: 100%;
-    padding: 0.8rem;
-    // border-radius: 2rem;
-    border: none;
-    font-size: 1rem;
-    background-color: #F5F5F6;
-    outline: none;
+    .mat-mdc-text-field-wrapper {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      font-size: 1rem;
+      background-color: #f5f5f6;
+      outline: none;
     }
   }
 }
@@ -68,7 +68,7 @@ mat-toolbar {
 .username {
   margin-right: 8px;
   font-weight: 500;
-   display: flex;
+  display: flex;
   align-items: center;
 }
 
@@ -80,4 +80,12 @@ mat-icon {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.white-menu .mat-mdc-menu-panel {
+  background: #fff !important;
+}
+
+.white-menu .mat-mdc-menu-item {
+  background: #fff !important;
 }

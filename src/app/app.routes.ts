@@ -1,39 +1,7 @@
 import { Routes } from '@angular/router';
 import { Layout } from './shared/layout/layout';
-import { Home } from './shared/home/home';
 
 export const routes: Routes = [
-  // {
-  //   path: 'login',
-  //   loadComponent: () => import('./features/auth/login/login').then((m) => m.Login),
-  // },
-  // {
-  //   path: '',
-  //   component: Layout,
-  //   children: [
-  //     { path: '', redirectTo: 'home', pathMatch: 'full' },
-  //     { path: 'home', component: Home },
-  //     {
-  //       path: 'products',
-  //       loadChildren: () =>
-  //         import('./features/products/products.route').then((m) => m.PRODUCTS_ROUTES),
-  //     },
-  //   ],
-  // },
-
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
-
-  // 🔹 Login route (no layout)
-  // {
-  //   path: 'login',
-  //   loadComponent: () => import('./features/auth/login/login').then((m) => m.Login),
-  // },
-  //   {
-  //   path: 'register',
-  //   loadComponent: () => import('./features/auth/register/register').then((m) => m.Register),
-  // },
-
-  // 🔹 All other pages (with layout)
   {
     path: 'cart',
     loadComponent: () => import('./features/cart/cart').then((m) => m.Cart),
@@ -50,6 +18,13 @@ export const routes: Routes = [
         path: 'products',
         loadChildren: () =>
           import('./features/products/products.route').then((m) => m.PRODUCTS_ROUTES),
+      },
+      {
+        path: 'products/:category/product-details/:id',
+        loadComponent: () =>
+          import('./features/products/product-details/product-details').then(
+            (m) => m.ProductDetails,
+          ),
       },
       {
         path: 'login',

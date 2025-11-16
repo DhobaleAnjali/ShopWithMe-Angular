@@ -1,13 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetails } from './product-details/product-details';
 import { ProductService } from '../../core/services/product';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './products.html',
   styleUrl: './products.scss',
 })
@@ -17,6 +18,7 @@ export class Products implements OnInit {
   products: any[] = [];
 
   private productService = inject(ProductService);
+  private router = inject(Router);
 
   ngOnInit() {
     debugger;
@@ -25,7 +27,7 @@ export class Products implements OnInit {
       // this.loadProductsByCategory(this.category);
       if (this.category === 'men') this.getAllMenProducts();
       if (this.category == 'women') this.getAllWomensProducts();
-      if(this.category === 'general') this.getGeneralProducts();
+      if (this.category === 'general') this.getGeneralProducts();
     });
   }
 
@@ -60,13 +62,19 @@ export class Products implements OnInit {
     });
   }
 
-  goToProduct(p: string) {}
-
-  addToCart(){
-    console.log("addToCart")
+  goToProduct(p: any) {
+    debugger;
+    const category = 'men';
+    this.router.navigate(['/products', category, 'product-details', p.id], {
+      state: { product: p },
+    });
   }
 
-  addToWishlist(){
-    console.log("addToWishlist")
+  addToCart() {
+    console.log('addToCart');
+  }
+
+  addToWishlist() {
+    console.log('addToWishlist');
   }
 }

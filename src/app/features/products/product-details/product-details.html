@@ -1,1 +1,65 @@
-<p>product-details works!</p>
+<div class="container">
+  <!-- LEFT: IMAGE -->
+  <div class="left">
+    <img [src]="product?.thumbnail" alt="Product Image" class="product-img" />
+  </div>
+
+  <!-- RIGHT: DETAILS -->
+  <div class="right">
+    <h2 class="name">{{ product?.brand }}</h2>
+    <p class="brand">
+      <strong>{{ product?.title }}</strong>
+    </p>
+    <p>{{ product?.price }}</p>
+    <p>{{ product?.rating }}</p>
+
+    <mat-divider></mat-divider>
+
+    <!-- COLOR OPTIONS -->
+    <div class="color-block">
+      <h4>Color</h4>
+      <div class="color-options">
+        <button
+          mat-raised-button
+          *ngFor="let c of product?.colors"
+          [ngClass]="{ 'active-color': selectedColor === c }"
+          (click)="selectColor(c)"
+        >
+          {{ c }}
+        </button>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- SIZE OPTIONS -->
+    <div class="size-block">
+      <h4>Select size</h4>
+      <div class="size-options">
+        <div class="size-circle">S</div>
+        <div class="size-circle">M</div>
+        <div class="size-circle">L</div>
+        <div class="size-circle">XL</div>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-btns">
+      <button mat-stroked-button class="wishlist-btn" (click)="addToWishlist()">
+        <mat-icon>favorite_border</mat-icon>
+        Wishlist
+      </button>
+
+      <button
+        mat-raised-button
+        class="primary-btn"
+        (click)="addToCart()"
+      >
+        <mat-icon>shopping_cart</mat-icon>
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
