@@ -31,15 +31,15 @@ export class Products implements OnInit {
     });
   }
 
-  loadProductsByCategory(category: string) {
-    this.productService.getProducts(category).subscribe({
-      next: (res) => {
-        // this.products = res.products;
-        console.log('Products loaded:', this.products);
-      },
-      error: (err) => console.error('Error loading products:', err),
-    });
-  }
+  // loadProductsByCategory(category: string) {
+  //   this.productService.getProducts(category).subscribe({
+  //     next: (res) => {
+  //       // this.products = res.products;
+  //       console.log('Products loaded:', this.products);
+  //     },
+  //     error: (err) => console.error('Error loading products:', err),
+  //   });
+  // }
 
   getAllMenProducts() {
     this.productService.getAllMensProducts().subscribe((data) => {
