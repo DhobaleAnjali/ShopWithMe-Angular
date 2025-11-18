@@ -1,25 +1,95 @@
 <div class="home-container">
   <!-- Banner -->
-  <div class="banner">
+  <!-- <div class="banner">
     <img />
     <div class="banner-text">Upto <span>50%</span> discount</div>
+  </div> -->
+
+  <!-- <div class="coupon-banner">
+    <div class="coupon-left">
+      <h2>Get <span>25% Off</span></h2>
+      <p>Up To ₹200 Off*</p>
+    </div>
+
+    <div>
+      <div class="coupon-center">
+        <span class="code-label">COUPON CODE</span>
+        <span class="code-value">SHOPME</span>
+      </div>
+      <p class="coupon-bottom-text">On Your First Order | T&C Apply</p>
+    </div>
+
+    <div class="coupon-right">%</div>
+  </div> -->
+
+  <div class="coupon-banner">
+    <!-- Left notches -->
+    <div class="notch left n1"></div>
+    <div class="notch left n2"></div>
+    <div class="notch left n3"></div>
+
+    <!-- Right notches -->
+    <div class="notch right n1"></div>
+    <div class="notch right n2"></div>
+    <div class="notch right n3"></div>
+
+    <!-- Your banner content -->
+    <div class="banner-content">
+      <h1><span>Get 25% Off</span><br />Up To ₹200 Off*</h1>
+      <div>
+        <div class="coupon-box">
+          <small>COUPON CODE</small>
+          <h3>SHOPMEFESTIVAL</h3>
+        </div>
+        <p class="coupon-bottom-text">On Your First Order | T&C Apply</p>
+      </div>
+      <div class="coupon-right">%</div>
+    </div>
   </div>
 
   <!-- Category section -->
-  <div class="category-container">
+  <!-- <div class="category-container">
     @for (c of categories; track c.name) {
       <div class="category" (click)="goToCategory(c.name)">
         <img [src]="c.image" [alt]="c.name" />
         <h3>{{ c.name | titlecase }}</h3>
       </div>
     }
+  </div> -->
+  <div class="carousel-wrapper">
+    <div class="category-container">
+      @for (c of categories; track c.name) {
+        <div class="category" (click)="goToCategory(c.name)">
+          <img [src]="c.image" [alt]="c.name" />
+          <h3>{{ c.name | titlecase }}</h3>
+        </div>
+      }
+    </div>
+
+    <div class="carousel-dots">
+      @for (d of dots; let i = $index; track d) {
+        <span class="dot" [class.active]="currentIndex === i" (click)="goToSlide(i)"></span>
+      }
+    </div>
+  </div>
+
+  <div class="products-container">
+    @for (category of groupedProductsArray; track category.key) {
+      <h2 class="category-title">{{ category.key | uppercase }}</h2>
+      <div class="products-row">
+        @for (product of category.value ?? []; track product.id) {
+          <div
+            class="product-card"
+            [class.cat-beauty]="category.key === 'beauty'"
+            [class.cat-fragrances]="category.key === 'fragrances'"
+            [class.cat-furniture]="category.key === 'furniture'"
+            [class.cat-groceries]="category.key === 'groceries'"
+          >
+            <img [src]="product.thumbnail" alt="" />
+            <h5>{{ product.title }}</h5>
+          </div>
+        }
+      </div>
+    }
   </div>
 </div>
-
-<!-- <div class="product-grid">
-  <div *ngFor="let product of products" class="product-card">
-    <img [src]="product.thumbnail" [alt]="product.title" />
-    <h3>{{ product.title }}</h3>
-    <p>{{ product.price | currency:'INR' }}</p>
-  </div>
-</div> -->

@@ -10,17 +10,16 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(category: string): Observable<any> {
-    const categoryUrl =
-      category === 'men'
-        ? '/category/mens-shirts'
-        : category === 'women'
-          ? '/category/womens-dresses'
-          : '/category/home-decoration'; // fallback for general
+  getDefaultProducts(): Observable<any> {
+    return this.http.get<any>(this.baseUrl).pipe(
+      catchError(() => {
+        // fallback to local JSON
+        return this.getLocalProducts();
+      }));
+  }
 
-    console.log(`${this.baseUrl}${categoryUrl}`);
-
-    return this.http.get<any>(`${this.baseUrl}${categoryUrl}`);
+  getLocalProducts(): Observable<any>{
+    return this.http.get('/assets/data/products.json');
   }
   getAllMensProducts(): Observable<any[]> {
     const shirts$ = this.http

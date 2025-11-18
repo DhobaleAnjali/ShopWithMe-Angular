@@ -3,69 +3,262 @@
   flex-direction: column;
   height: calc(100vh - 4rem); /* below navbar */
   margin-top: 4rem;
-  overflow: hidden;
+  // overflow: auto;
 }
 
-.banner {
-  flex: 0 0 45%; /* banner takes 45% of remaining height */
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  background-color: rgb(235 92 116 / 30%);
-
-  .banner-text {
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-    letter-spacing: 2px;
-    text-align: right;
-    span {
-      font-size: 6rem;
-    }
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    background-image: url('../../../assets/photo.avif');
-    background-position: right;
-  }
+// /* RIGHT SECTION */
+.coupon-right {
+  font-size: 70px;
+  font-weight: 700;
+  background: linear-gradient(120deg, #ff6bb5, #a167ff, #38c9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 10px;
 }
 
-.category-container {
-  flex: 1; /* remaining 55% */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-items: center;
-  padding: 1rem;
-  gap: 1rem;
-  cursor: pointer;
-}
-
-.category {
+/* BOTTOM TEXT */
+.coupon-bottom-text {
   text-align: center;
-  width: 100%;
-  // border-radius: 1rem;
-  background-color: rgb(235 92 116 / 30%);
-  padding-bottom: 0.5rem;
-  color: #fff;
+  color: #444;
+  margin: 6px 4px 0 0;
+  font-size: 14px;
+}
+
+// Carousel starts
+
+.carousel-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem !important;
+  // overflow: hidden;
+}
+
+/* Make category-container act like a horizontal slider */
+.category-container {
+  display: flex !important;
+  transition: transform 0.5s ease;
+  height: 20rem;
+}
+
+/* Each category = 100% width of parent */
+.category {
+  flex: 0 0 100%;
+  position: relative;
+  cursor: pointer;
 }
 
 .category img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  // border-radius: 10px;
 }
 
-h3 {
-  margin-top: 0.5rem;
+.category h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.4rem;
+  pointer-events: none;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Dots */
+.carousel-dots {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background: gray;
+  opacity: 0.4;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.dot.active {
+  opacity: 1;
+}
+
+////
+.coupon-banner {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  border-radius: 22px;
+  background: linear-gradient(90deg, #fdd9d9c7, #fafaaea8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3rem 6rem;
+}
+
+/* Common notch style */
+.notch {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* LEFT NOTCHES */
+.notch.left {
+  left: -13px;
+}
+// .notch.left.n1 { top: 18%; }
+// .notch.left.n2 { top: 50%; }
+// .notch.left.n3 { top: 82%; }
+
+/* LEFT side */
+.notch.left.n1 {
+  top: 18%;
+}
+.notch.left.n2 {
+  top: 48%;
+}
+.notch.left.n3 {
+  top: 78%;
+}
+
+/* RIGHT side */
+.notch.right.n1 {
+  top: 18%;
+}
+.notch.right.n2 {
+  top: 48%;
+}
+.notch.right.n3 {
+  top: 78%;
+}
+
+/* RIGHT NOTCHES */
+.notch.right {
+  right: -13px;
+}
+// .notch.right.n1 { top: 18%; }
+// .notch.right.n2 { top: 50%; }
+// .notch.right.n3 { top: 82%; }
+
+/* Coupon content styling EXACT like Myntra */
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.banner-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff4f4f;
+  line-height: 1.2;
+}
+
+.banner-content h1 span {
+  background: linear-gradient(to right, #ff8a00, #ff4f4f);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.coupon-box {
+  background: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2.5rem;
+  text-align: center;
+}
+
+.coupon-box small {
+  font-size: 12px;
+  color: gray;
   font-weight: 600;
 }
+
+.coupon-box h3 {
+  margin-top: 5px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #333;
+}
+
+///////////////////////////////////
+///
+///
+
+.products-container {
+  padding: 1rem 2rem;
+}
+
+.category-title {
+  margin: 1rem 0 0.5rem;
+  color: #5a3e36;
+  font-weight: 700;
+}
+
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 4 products in a row */
+  gap: 1.5rem;
+  margin-bottom: 2rem; /* spacing between categories */
+  padding: 2rem 0rem 0rem 0rem;
+}
+
+.product-card {
+  cursor: pointer;
+  background: linear-gradient(90deg, #fde7d9, #fdf3e6);
+  // transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  // &:hover {
+  //   transform: translateY(-6px);
+  //   box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  // }
+
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    padding: 1rem;
+  }
+
+  .product-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    // overflow: hidden;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  h5 {
+    padding: 0 1rem 1rem 1rem;
+    text-align: center;
+  }
+}
+
+.cat-beauty {
+  background: linear-gradient(135deg, rgb(253 217 217 / 48%), #ffd1dca8);
+}
+
+/* ELECTRONICS category — blue gradient */
+.cat-fragrances {
+  background: linear-gradient(90deg, rgb(129 129 240 / 13%), #e6fbfd99);
+}
+
+/* FASHION category — purple gradient */
+.cat-furniture {
+  background: linear-gradient(135deg, rgb(128 57 57 / 14%), #d3a79c70);
+}
+
+/* HOME category — green gradient */
+.cat-groceries {
+  background: linear-gradient(135deg, #9288b16b, #4c303000);
+}
+
+// linear-gradient(90deg, #fdd9d942, #fde6fa)s

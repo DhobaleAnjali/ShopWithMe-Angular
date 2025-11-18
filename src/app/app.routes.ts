@@ -11,6 +11,11 @@ export const routes: Routes = [
     component: Layout,
     children: [
       {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
+      {
         path: 'home',
         loadComponent: () => import('./shared/home/home').then((m) => m.Home),
       },
@@ -25,6 +30,10 @@ export const routes: Routes = [
           import('./features/products/product-details/product-details').then(
             (m) => m.ProductDetails,
           ),
+      },
+      {
+        path: 'profile',
+        loadComponent: () => import('./features/profile/profile').then((m) => m.Profile),
       },
       {
         path: 'login',

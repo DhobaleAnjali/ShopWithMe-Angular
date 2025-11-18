@@ -11,6 +11,8 @@ html,
 body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden; 
+  overflow-y: auto;
 }
 
 // Commmon syles
@@ -55,18 +57,18 @@ body {
 }
 
 //buttons
-.primary-btn{
+.primary-btn {
   background: #ff3f6c;
   color: #fff;
   border: none;
 }
 
-.secondary-btn{
+
+.secondary-btn {
   background: #fff;
   border: 1px solid #ccc;
   color: #333;
 }
 
-.ternary-btn{
-
+.ternary-btn {
 }
