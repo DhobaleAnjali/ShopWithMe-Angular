@@ -10,6 +10,14 @@ https://dummyjson.com
 
 https://www.figma.com/community/file/1331381641303792117/furniture-ecommerce-website-ui
 
+## waht to implement
+Interceptors
+Signals
+App_Initializer
+NgRx
+System design stuffs
+AI
+
 
 ## Development server
 

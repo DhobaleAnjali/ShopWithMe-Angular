@@ -243,22 +243,22 @@
 }
 
 .cat-beauty {
-  background: linear-gradient(135deg, rgb(253 217 217 / 48%), #ffd1dca8);
+  background: radial-gradient(#ffffff, rgb(242 7 107 / 23%));
 }
 
 /* ELECTRONICS category — blue gradient */
 .cat-fragrances {
-  background: linear-gradient(90deg, rgb(129 129 240 / 13%), #e6fbfd99);
+  background: radial-gradient(#fff, rgb(11 11 244 / 13%));
 }
 
 /* FASHION category — purple gradient */
 .cat-furniture {
-  background: linear-gradient(135deg, rgb(128 57 57 / 14%), #d3a79c70);
+  background: rgb(208 161 149 / 25%);
 }
 
 /* HOME category — green gradient */
 .cat-groceries {
-  background: linear-gradient(135deg, #9288b16b, #4c303000);
+  background: linear-gradient(90deg, #f51d152e, #fa386914);
 }
 
 // linear-gradient(90deg, #fdd9d942, #fde6fa)s

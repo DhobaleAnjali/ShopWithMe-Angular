@@ -11,7 +11,6 @@ import { MatLabel } from '@angular/material/input';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, MatCardModule, MatDividerModule, MatIconModule, MatLabel],
-  // , MatCard, MatCardContent],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
 })
@@ -80,15 +79,7 @@ export class Home implements OnInit {
       acc[category].push(item);
       return acc;
     }, {});
-    // this.groupedProductsArr= this.groupedProductsArray();
   }
-
-  //   get groupedProductsArray() {
-  //   return Object.entries(this.groupedProducts).map(([key, value]) => ({
-  //     key,
-  //     value
-  //   }));
-  // }
 
   get groupedProductsArray() {
     return Object.entries(this.groupedProducts).map(([key, value]) => ({ key, value }));
