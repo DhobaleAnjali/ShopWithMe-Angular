@@ -19,18 +19,18 @@ export class Home implements OnInit {
   categories = [
     {
       name: 'Men',
-      image:
-        'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=600&q=80',
+      image: '/assets/menShopping.png'
+        // 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=600&q=80',
     },
     {
       name: 'Women',
-      image:
-        'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
+      image: '/assets/womenShopping.png'
+        // 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
     },
     {
       name: 'General',
-      image:
-        'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80',
+      image: '/assets/generalShopping.jpg'
+        //'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80',
     },
   ];
   groupedProducts: any = {};

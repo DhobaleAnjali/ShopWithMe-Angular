@@ -61,7 +61,8 @@
       @for (c of categories; track c.name) {
         <div class="category" (click)="goToCategory(c.name)">
           <img [src]="c.image" [alt]="c.name" />
-          <h3>{{ c.name | titlecase }}</h3>
+          <div class="category-details"><h1>{{ c.name | titlecase }}<span> products</span></h1>
+          <h3>Min 40% off</h3></div>
         </div>
       }
     </div>

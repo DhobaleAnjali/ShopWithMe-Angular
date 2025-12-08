@@ -42,26 +42,34 @@
 
 /* Each category = 100% width of parent */
 .category {
+  display: flex;
   flex: 0 0 100%;
   position: relative;
   cursor: pointer;
 }
 
 .category img {
-  width: 100%;
+  width: 60%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 10%;
 }
 
-.category h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 1.4rem;
-  pointer-events: none;
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+.category-details {
+  display: flex;
+  flex-direction: column; /* Stack h1 and h3 vertically */
+  justify-content: center; /* Vertical center */
+  align-items: center; /* Horizontal center */
+  height: 100%;
+  width: 40%; /* Or any fixed height like 200px */
+  text-align: center; /* Center text */
+
+  h1{
+    font-size: 3rem;
+  }
+  h3{
+    color: gray;
+  }
 }
 
 /* Dots */
@@ -212,7 +220,7 @@
 
 .product-card {
   cursor: pointer;
-  background: linear-gradient(90deg, #fde7d9, #fdf3e6);
+  // background: linear-gradient(90deg, #fde7d9, #fdf3e6);
   // transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   // &:hover {
@@ -248,7 +256,8 @@
 
 /* ELECTRONICS category — blue gradient */
 .cat-fragrances {
-  background: radial-gradient(#fff, rgb(11 11 244 / 13%));
+  // background: radial-gradient(#fff, rgb(11 11 244 / 13%));
+  border: 0.5rem solid #826bee;
 }
 
 /* FASHION category — purple gradient */

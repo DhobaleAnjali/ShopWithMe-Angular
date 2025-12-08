@@ -7,11 +7,12 @@ import { MatLabel } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatFormField, MatLabel, MatMenuModule, MatInputModule, MatLabel, RouterModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatFormField, MatLabel, MatMenuModule, MatInputModule, MatIcon, RouterModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
