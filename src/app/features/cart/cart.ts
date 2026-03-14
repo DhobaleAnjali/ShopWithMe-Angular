@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-cart',
@@ -38,4 +39,10 @@ export class Cart {
       returnDate: '45.78.9292',
     },
   ];
+  readonly store: Store<{ cart: number }> = inject(Store);
+  cart$ = this.store.select((state) => state.cart);
+
+  ngOnInit(){
+   this.cart$.subscribe(data => console.log('Cart Data:', data));
+  }
 }

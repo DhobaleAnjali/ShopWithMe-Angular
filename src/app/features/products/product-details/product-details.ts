@@ -5,6 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipListboxChange, MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
+import { Store } from '@ngrx/store';
+import { addToCart } from '../../states/cart/cart.actions';
 
 @Component({
   selector: 'app-product-details',
@@ -17,6 +19,8 @@ export class ProductDetails implements OnInit {
 
   readonly router = inject(Router);
   readonly route = inject(ActivatedRoute);
+  readonly store: Store<{cart: number}> = inject(Store);
+   cart = this.store.select((state)=> state.cart);
 
   product: any = history.state.product; // full object sent via navigation
 
@@ -44,6 +48,7 @@ export class ProductDetails implements OnInit {
       size: this.selectedSize,
       color: this.selectedColor,
     });
+    this.store.dispatch(addToCart());
   }
 
   addToWishlist() {

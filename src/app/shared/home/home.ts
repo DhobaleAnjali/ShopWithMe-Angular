@@ -5,12 +5,11 @@ import { MatCard, MatCardContent, MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLabel } from '@angular/material/input';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatDividerModule, MatIconModule, MatLabel],
+  imports: [CommonModule, MatCardModule, MatDividerModule, MatIconModule],
   templateUrl: './home.html',
   styleUrls: ['./home.scss'],
 })
@@ -19,18 +18,18 @@ export class Home implements OnInit {
   categories = [
     {
       name: 'Men',
-      image: '/assets/menShopping.png'
-        // 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=600&q=80',
+      image: '/assets/menShopping.png',
+      // 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=600&q=80',
     },
     {
       name: 'Women',
-      image: '/assets/womenShopping.png'
-        // 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
+      image: '/assets/womenShopping.png',
+      // 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
     },
     {
       name: 'General',
-      image: '/assets/generalShopping.jpg'
-        //'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80',
+      image: '/assets/generalShopping.jpg',
+      //'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80',
     },
   ];
   groupedProducts: any = {};
@@ -65,7 +64,7 @@ export class Home implements OnInit {
 
   updateTransform() {
     const container = document.querySelector('.category-container') as HTMLElement;
-    container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+    if (container) container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
   }
 
   groupProductsByCategory() {
