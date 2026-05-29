@@ -1,0 +1,263 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1rem;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  // min-height: 100%;
+  overflow-x: hidden;
+  font-family: $font-family;
+  background: $bg-light;
+  color: $text-dark;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   COMMON LAYOUT
+========================= */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.page-center {
+  width: 100%;
+  // min-height: 100vh;
+  // min-height: 100dvh;
+  padding: $space-md;
+  background: $bg-overlay;
+
+  @include flex-center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 32rem;
+  background: white;
+  padding: $space-xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.title {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: $text-light;
+}
+
+.header {
+  font-weight: 700;
+  color: #333;
+}
+
+.link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 600;
+
+  @include transition;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text-dark;
+  }
+}
+
+.form-control {
+  width: 100%;
+  min-height: 2.875rem;
+  padding: 0 0.9rem;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  font-size: 1rem;
+  outline: none;
+  background: white;
+  color: $text-dark;
+
+  @include transition;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(100, 65, 208, 0.12);
+  }
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+}
+
+.textarea {
+  min-height: 7rem;
+  resize: vertical;
+  padding: 0.9rem;
+}
+
+.error-text {
+  margin-top: 0.3rem;
+  color: $danger-color;
+  font-size: 0.75rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+  min-height: 2.875rem;
+  min-width: 7rem;
+  padding: 0 1.25rem;
+  border-radius: $radius-md;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  @include transition;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: $primary-color;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+  }
+}
+
+.btn-secondary {
+  background: white;
+  border: 1px solid $border-color;
+  color: $text-dark;
+
+  &:hover:not(:disabled) {
+    background: #f9fafb;
+  }
+}
+
+.row-buttons {
+  display: flex;
+  gap: 1rem; // space only between buttons
+  width: 100%;
+  margin-top: 1rem;
+
+  button {
+    flex: 1; // both take equal width
+  }
+}
+
+.rating {
+  background: #f4f4f4;
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  .fa-star {
+    color: #ffd700;
+  }
+}
+
+.fa-heart {
+  color: $danger-color;
+}
+.fa-code-compare {
+  color: $primary-color;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+.btn:focus-visible,
+.form-control:focus-visible,
+.link-primary:focus-visible {
+  outline: 2px solid rgba(100, 65, 208, 0.35);
+  outline-offset: 2px;
+}
+
+/* =========================
+   COMMON FLEX
+========================= */
+
+.flex-center {
+  @include flex-center;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@include mobile {
+  .page-center {
+    padding: $space-sm;
+  }
+
+  .auth-card {
+    padding: $space-lg;
+    border-radius: $radius-md;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}

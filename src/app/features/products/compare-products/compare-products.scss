@@ -1,0 +1,57 @@
+
+.compare-page{
+    padding:20px;
+}
+
+.products-wrapper{
+    display:flex;
+    gap:20px;
+    margin-top:30px;
+    margin-bottom:40px;
+}
+
+.product-card{
+    flex:1;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:20px;
+}
+
+.product-card img{
+    width:100%;
+    height:250px;
+    object-fit:contain;
+}
+
+.comparison-card{
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.compare-row{
+    margin-bottom:25px;
+}
+
+.summary-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.summary-title i{
+    font-size:18px;
+}
+
+.winner-icon{
+    color:#FFD700;
+}
+
+.compare-btn{
+    padding:10px 16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}

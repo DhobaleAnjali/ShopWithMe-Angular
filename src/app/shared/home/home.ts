@@ -1,0 +1,94 @@
+import { Component, OnInit, effect, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProductService } from '../../core/services/product';
+import { Router } from '@angular/router';
+import { SearchStore } from '../../core/store/search.store';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './home.html',
+  styleUrls: ['./home.scss'],
+})
+export class Home implements OnInit {
+  products: any[] = [];
+  categories = [
+    {
+      name: 'Men',
+      image: '/assets/menShopping.png',
+      // 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=600&q=80',
+    },
+    {
+      name: 'Women',
+      image: '/assets/womenShopping.png',
+      // 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80',
+    },
+    {
+      name: 'General',
+      image: '/assets/generalShopping.jpg',
+      //'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80',
+    },
+  ];
+  groupedProducts: any = {};
+  groupedProductsArr = [];
+  currentIndex = 0;
+  dots = [0, 1, 2];
+
+  // ✅ Modern injection
+  private productService = inject(ProductService);
+  private router = inject(Router);
+
+  ngOnInit(): void {
+    this.productService.getDefaultProducts().subscribe((res: any) => {
+      this.products = res.products; // <-- set products
+      this.groupProductsByCategory(); // <-- now group
+      console.log('Grouped: ', this.groupedProducts);
+    });
+    setInterval(() => {
+      this.nextSlide();
+    }, 3000);
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % 3;
+    this.updateTransform();
+  }
+
+  goToSlide(i: number) {
+    this.currentIndex = i;
+    this.updateTransform();
+  }
+
+  updateTransform() {
+    const container = document.querySelector('.category-container') as HTMLElement;
+    if (container) container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+  }
+
+  groupProductsByCategory() {
+    this.groupedProducts = this.products.reduce((acc: any, item: any) => {
+      const category = item.category;
+
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+
+      acc[category].push(item);
+      return acc;
+    }, {});
+  }
+
+  get groupedProductsArray() {
+    return Object.entries(this.groupedProducts).map(([key, value]) => ({ key, value }));
+  }
+
+  goToProduct(product: any) {
+    this.router.navigate(['/products', product.category, 'product-details', product.id], {
+      state: { product: product },
+    });
+  }
+
+  goToCategory(category: string) {
+    this.router.navigate(['/products', category.toLowerCase()]);
+  }
+}

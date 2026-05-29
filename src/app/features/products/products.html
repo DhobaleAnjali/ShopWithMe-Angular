@@ -1,0 +1,45 @@
+<section class="products-container">
+  <header class="page-header">
+    <h4 class="header">Home / {{ category + 's' | titlecase }} Collection</h4>
+  </header>
+
+  @if (searchStore.searchResult()?.assistantMessage) {
+    <section class="ai-assistant-box">
+      <span class="assistant-title">
+        <i class="fa-solid fa-robot"></i>
+        AI Shopping Assistant
+      </span>
+      <p>
+        {{ searchStore.searchResult()?.assistantMessage }}
+      </p>
+    </section>
+  }
+
+  @if (products?.length) {
+    <div class="products-grid">
+      @for (p of products; track p.title) {
+        <article class="product-card" (click)="goToProduct(p)">
+          <div class="img-wrapper">
+            <img [src]="p.thumbnail" [alt]="p.title" />
+            <div class="wishlist-overlay">
+              <button class="wishlist-btn" (click)="addToWishlist(); $event.stopPropagation()">
+                <i class="fa-solid fa-heart fav-icon"></i> Wishlist
+              </button>
+            </div>
+          </div>
+
+          <div class="content">
+            <p class="header">{{ p.title }}</p>
+            @if (p.brand) {
+              <h3 class="subtitle">{{ p.brand }}</h3>
+            }
+            <p class="subtitle">₹ {{ p.price }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  } @else {
+    <!-- <div class="loading">Loading products...</div> -->
+    <div class="loading">No products available</div>
+  }
+</section>

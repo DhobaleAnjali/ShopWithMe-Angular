@@ -1,0 +1,136 @@
+<section class="profile-container">
+  <div class="profile-card">
+    <h2>User Profile</h2>
+
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="saveProfile()"
+      class="profile-form"
+    >
+      <div class="form-grid">
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            formControlName="username"
+            placeholder="Enter username"
+          />
+
+          @if(profileForm.get('username')?.invalid &&
+              profileForm.get('username')?.touched){
+
+            <small class="error">
+              Username is required
+            </small>
+          }
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="Enter email"
+          />
+
+          @if(profileForm.get('email')?.invalid &&
+              profileForm.get('email')?.touched){
+
+            <small class="error">
+              Valid email required
+            </small>
+          }
+        </div>
+
+        <!-- Profile URL -->
+        <div class="form-group">
+          <label for="profilePicture">
+            Profile Picture URL
+          </label>
+
+          <input
+            id="profilePicture"
+            type="text"
+            formControlName="profilePicture"
+            placeholder="Image URL"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="telephone">Telephone</label>
+
+          <input
+            id="telephone"
+            type="text"
+            formControlName="telephone"
+            placeholder="+91 9876543210"
+          />
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label for="gender">Gender</label>
+
+          <select id="gender" formControlName="gender">
+            <option value="">Select</option>
+            <option value="male">
+              Male
+            </option>
+            <option value="female">
+              Female
+            </option>
+            <option value="other">
+              Other
+            </option>
+          </select>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group address-field">
+
+          <label for="address">
+            Address
+          </label>
+
+          <textarea
+            id="address"
+            rows="4"
+            formControlName="address"
+            placeholder="Enter address"
+          >
+          </textarea>
+
+        </div>
+
+      </div>
+
+      <div class="row-buttons">
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Save
+        </button>
+
+        <button
+          class="btn btn-secondary"
+          type="button"
+          (click)="cancelEdit()"
+        >
+          Cancel
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</section>

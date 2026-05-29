@@ -1,0 +1,63 @@
+<main class="compare-page">
+  <h1>AI Product Comparison</h1>
+  @if (products.length > 1) {
+    <section class="products-wrapper">
+      <article class="product-card">
+        <img [src]="products[0]?.thumbnail" alt="product" />
+        <h2>{{ products[0]?.title }}</h2>
+        <p>
+          Price:
+          {{ products[0]?.price }}
+        </p>
+        <p>
+          Rating:
+          {{ products[0]?.rating }}
+        </p>
+      </article>
+      <article class="product-card">
+        <img [src]="products[1]?.thumbnail" alt="product" />
+        <h2>{{ products[1]?.title }}</h2>
+        <p>
+          Price:
+          {{ products[1]?.price }}
+        </p>
+        <span class="rating"> <i class="fa-solid fa-star"></i> {{ products[0].rating }}</span>
+      </article>
+    </section>
+  } @else {
+    <div>No products for comparision</div>
+  }
+
+  @if (compareData) {
+    <section class="comparison-card">
+      <div class="compare-row">
+        <span class="summary-title">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <span>Pros</span>
+        </span>
+        <p>{{ compareData.pros }}</p>
+      </div>
+      <div class="compare-row">
+        <span class="summary-title">
+          <i class="fa-solid fa-thumbs-down"></i>
+          <span>Cons</span>
+        </span>
+        <p>{{ compareData.cons }}</p>
+      </div>
+      <div class="compare-row">
+        <span class="summary-title">
+          <i class="fa-solid fa-trophy winner-icon"></i>
+          <span>Winner</span>
+        </span>
+        <p>{{ compareData.winner }}</p>
+      </div>
+      <div class="compare-row">
+        <span class="summary-title">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span>Best For</span>
+        </span>
+        <p>{{ compareData.bestFor }}</p>
+      </div>
+    </section>
+  }
+</main>

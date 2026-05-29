@@ -1,0 +1,119 @@
+@if (product) {
+  <section class="product-container">
+    <!-- Left -->
+    <figure class="left">
+      <img [src]="product?.thumbnail" alt="Product Image" class="product-img" />
+    </figure>
+
+    <!-- Right -->
+    <div class="right">
+      <header class="product-info">
+        <h2 class="name">{{ product?.brand }}</h2>
+
+        <p class="header">
+          {{ product?.title }}
+        </p>
+
+        <div class="details">
+          <span class="price">₹ {{ product?.price }}</span>
+          <span class="rating"> <i class="fa-solid fa-star"></i> {{ product?.rating }}</span>
+        </div>
+      </header>
+
+      <!-- Color -->
+      <section class="section">
+        <h4>Color</h4>
+
+        <div class="color-options">
+          <button
+            class="color-btn"
+            *ngFor="let c of product?.colors"
+            [ngClass]="{ 'active-color': selectedColor === c }"
+            (click)="selectColor(c)"
+          >
+            {{ c }}
+          </button>
+        </div>
+      </section>
+
+      <!-- Size -->
+      <section class="section">
+        <h4>Select Size</h4>
+
+        <div class="size-options">
+          <div class="size-circle">S</div>
+          <div class="size-circle">M</div>
+          <div class="size-circle">L</div>
+          <div class="size-circle">XL</div>
+        </div>
+      </section>
+
+      <!-- Buttons -->
+      <div class="action-btns" role="group">
+        <button class="btn btn-secondary" (click)="addToWishlist()">
+          <i class="fa-solid fa-heart fav-icon"></i>Wishlist
+        </button>
+
+        <button class="btn btn-primary" (click)="addToCart()">
+          <i class="fa-solid fa-cart-shopping cart-icon"></i> Add to Cart
+        </button>
+
+        <button class="btn btn-secondary" (click)="addToCompare(product)">
+          <i class="fa-solid fa-code-compare"></i>
+          Add To Compare
+        </button>
+      </div>
+      <section class="reviews">
+        @if (reviewSummary) {
+          <div class="ai-summary">
+            <h4>AI Summury</h4>
+            <div class="summary-item">
+              <span class="summary-title">
+                <i class="fa-solid fa-thumbs-up"></i>
+                <span>Pros</span>
+              </span>
+
+              <p>{{ reviewSummary.pros ? reviewSummary.pros : 'not any' }}</p>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-title">
+                <i class="fa-solid fa-thumbs-down"></i>
+                <span>Cons</span>
+              </span>
+
+              <p>{{ reviewSummary.cons ? reviewSummary.cons : 'not any' }}</p>
+            </div>
+
+            <div class="summary-item">
+              <span class="summary-title">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Overall Review</span>
+              </span>
+
+              <p>{{ reviewSummary.overall ? reviewSummary.overall : 'no reviews' }}</p>
+            </div>
+          </div>
+        }
+        <h3>Customer Reviews</h3>
+
+        @for (r of product.reviews; track r.reviewerEmail) {
+          <article class="review">
+            <span class="rating"><i class="fa-solid fa-star"></i> {{ r.rating }}</span>
+            <span>{{ r.comment }}</span>
+            <p>{{ r.reviewerName }} | {{ r.date | date }}</p>
+          </article>
+        }
+      </section>
+    </div>
+  </section>
+}
+<section>
+  @if (showToast) {
+    <div class="compare-toast">
+      <i class="fa-solid fa-check"></i>
+
+      {{ toastMessage }}
+    </div>
+  }
+</section>

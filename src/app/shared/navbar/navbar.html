@@ -1,0 +1,51 @@
+<header class="navbar">
+  <!-- BRAND -->
+  <div class="brand">
+    <div class="brand-text">ShopWithMe</div>
+    <span class="bag-icon"><i class="fa-solid fa-bag-shopping"></i></span>
+    <!-- <img src="assets/bag.jpg" alt="Shopping Bag" class="bag-icon" /> -->
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search naturally, we will show you what you want"
+      [(ngModel)]="searchText"
+      (keyup.enter)="search()"
+    />
+    <button class="mic-btn" (click)="startVoiceSearch()">
+      <span class="material-icons" [class.listening]="voiceService.isListening">
+        {{ voiceService.isListening ? 'mic' : 'mic_none' }}
+      </span>
+    </button>
+  </div>
+
+  <!-- USER SECTION -->
+  <div class="user-section">
+    <!-- PROFILE -->
+    <div class="user-menu">
+      <button class="nav-btn username-btn" (click)="toggleMenu()">
+        <span class="username">Anjali</span>
+      </button>
+
+      @if (isMenuOpen) {
+        <div class="dropdown">
+          <a routerLink="/profile">Profile</a>
+          <a routerLink="/logout">Logout</a>
+        </div>
+      }
+    </div>
+
+    <!-- FAVORITE -->
+    <button class="icon-btn">
+      <span class="fav-icon"><i class="fa-solid fa-heart fav-icon"></i></span>
+    </button>
+
+    <!-- CART -->
+    <button class="icon-btn" routerLink="/cart">
+      <span class="cart-icon"><i class="fa-solid fa-cart-shopping cart-icon"></i></span>
+    </button>
+  </div>
+</header>

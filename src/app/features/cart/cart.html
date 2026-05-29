@@ -1,0 +1,59 @@
+@if (cartItems.length) {
+  <section class="cart-wrapper">
+    <div class="cart-container">
+      <!-- LEFT -->
+      <div class="cart-items">
+        @for (item of cartItems; track $index) {
+          <article class="cart-item">
+            <div class="img-box">
+              <img [src]="item.thumbnail" [alt]="item.title" class="item-img" />
+            </div>
+
+            <div class="item-details">
+              <h3 class="item-name">
+                {{ item.title }}
+              </h3>
+
+              <p class="item-meta">Qty: {{ '1' }}</p>
+
+              <p class="item-meta">
+                {{ item.returnPolicy }}
+              </p>
+
+              <h4 class="item-price">₹{{ item.price }}</h4>
+            </div>
+          </article>
+        }
+      </div>
+
+      <!-- RIGHT -->
+      <aside class="price-box">
+        <h2 class="price-title">Price Details</h2>
+
+        <div class="price-row">
+          <span>Subtotal</span>
+          <span>₹ subtotal </span>
+        </div>
+
+        <div class="price-row green">
+          <span>Discount</span>
+          <span>- ₹ discount </span>
+        </div>
+
+        <div class="price-row">
+          <span>Coupon</span>
+          <span>- ₹ coupon </span>
+        </div>
+
+        <div class="total-row">
+          <span>Total Amount</span>
+          <span>₹ 'total' </span>
+        </div>
+
+        <button class="btn btn-primary">Checkout</button>
+      </aside>
+    </div>
+  </section>
+} @else {
+  <div>Cart is empty</div>
+}
