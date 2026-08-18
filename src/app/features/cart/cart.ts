@@ -46,7 +46,6 @@ export class Cart {
   ngOnInit() {
     this.cart$.subscribe((data: any) => {
        console.log('Cart Data before:', this.cartItems);
-      debugger
       this.cartItems = [...data];
       console.log('Cart Data:', this.cartItems);
     });

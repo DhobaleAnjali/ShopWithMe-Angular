@@ -1,1 +1,35 @@
-<p>wishlist works!</p>
+@if (wishlistItems.length) {
+  <section class="cart-wrapper">
+    <div class="cart-container">
+      <!-- LEFT -->
+      <div class="cart-items">
+        @for (item of wishlistItems; track $index) {
+          <article class="cart-item">
+            <div class="img-box">
+              <img [src]="item.thumbnail" [alt]="item.title" class="item-img" />
+            </div>
+
+            <div class="item-details">
+              <h3 class="item-name">
+                {{ item.title }}
+              </h3>
+
+              <p class="item-meta">Qty: {{ '1' }}</p>
+
+              <p class="item-meta">
+                {{ item.returnPolicy }}
+              </p>
+
+              <h4 class="item-price">₹{{ item.price }}</h4>
+            </div>
+          </article>
+        }
+      </div>
+
+    </div>
+  </section>
+} @else {
+  <div>Wishlist is empty</div>
+}
+
+

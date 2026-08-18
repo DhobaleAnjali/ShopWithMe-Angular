@@ -7,6 +7,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/cart/cart').then((m) => m.Cart),
   },
   {
+    path: 'wishlist',
+    loadComponent: () => import('./features/wishlist/wishlist').then((m) => m.Wishlist),
+  },
+  {
     path: '',
     component: Layout,
     children: [

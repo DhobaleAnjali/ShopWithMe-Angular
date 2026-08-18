@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { addToCart } from '../../states/cart/cart.actions';
+import { addToWishlist } from '../../states/wishlist/wishlist.actions';
 import { SearchStore } from '../../../core/store/search.store';
 import { AiSearchService } from '../../../core/services/ai-search-service';
 
@@ -55,17 +56,21 @@ export class ProductDetails implements OnInit {
   }
 
   addToCart() {
-    debugger;
     console.log('ADD TO CART:', {
       product: this.product,
       size: this.selectedSize,
       color: this.selectedColor,
     });
     this.store.dispatch(addToCart({ item: this.product }));
+    this.toastMessage = 'Item added to Cart';
+    this.showToastMessage();
   }
 
   addToWishlist() {
     console.log('ADD TO WISHLIST:', this.product);
+    this.store.dispatch(addToWishlist({ item: this.product }));
+    this.toastMessage = 'Item added to Wishlist';
+    this.showToastMessage();
   }
 
   addToCompare(product: any) {
@@ -88,7 +93,7 @@ export class ProductDetails implements OnInit {
     this.showToast = true;
 
     setTimeout(() => {
-      // this.showToast = false;
+      this.showToast = false;
     }, 3000);
   }
 }
